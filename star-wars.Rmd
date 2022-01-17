@@ -20,6 +20,11 @@ accomp_pilots <- starwars %>%
   group_by(name) %>% 
   tally() %>% 
   arrange(desc(n)) %>% 
+accomp_pilots <- starwars |>
+  unnest(starships) |>
+  group_by(name) |> 
+  tally() |>
+  arrange(desc(n)) |>
   head(10)
 
 kable(accomp_pilots,
